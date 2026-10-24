@@ -1,0 +1,6 @@
+{
+  "name": "Faol Fuqaro — O‘zgarishlar Tashabbuskori",
+  "description": "9-sinf Tarbiya va Davlat va huquq asoslari fanlari bo‘yicha maktabdagi ekologik muammolarga bag‘ishlangan interaktiv tadqiqot va taqdimot platformasi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -6,8 +6,13 @@ import {
   LegalArticle,
 } from '../types';
 
-export const HERO_IMAGE_PATH = '/src/assets/images/eco_school_initiative_1792937625075.jpg';
-export const SOLUTION_IMAGE_PATH = '/src/assets/images/eco_sorting_action_1792937624484.jpg';
+import heroImage from '../assets/images/eco_school_initiative_1792937625075.jpg';
+import solutionImage from '../assets/images/eco_sorting_action_1792937624484.jpg';
+
+export const HERO_IMAGE_PATH = heroImage || '/assets/images/eco_school_initiative_1792937625075.jpg';
+export const SOLUTION_IMAGE_PATH = solutionImage || '/assets/images/eco_sorting_action_1792937624484.jpg';
+export const HERO_FALLBACK_PATH = '/assets/images/eco_school_initiative_1792937625075.jpg';
+export const SOLUTION_FALLBACK_PATH = '/assets/images/eco_sorting_action_1792937624484.jpg';
 
 export const SCHOOL_INFO = {
   schoolName: '98-sonli umumiy o‘rta ta’lim maktabi',

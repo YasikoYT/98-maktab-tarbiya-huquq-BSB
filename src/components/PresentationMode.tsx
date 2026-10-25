@@ -17,7 +17,7 @@ import {
   FileText
 } from 'lucide-react';
 import { useProject } from '../context/ProjectContext';
-import { SCHOOL_INFO, SURVEY_TOTAL_RESPONDENTS, SIX_TASKS, HERO_IMAGE_PATH, SOLUTION_IMAGE_PATH } from '../data/initialData';
+import { SCHOOL_INFO, SURVEY_TOTAL_RESPONDENTS, SIX_TASKS, HERO_IMAGE_PATH, SOLUTION_IMAGE_PATH, SOLUTION_FALLBACK_PATH } from '../data/initialData';
 import { playSlideSound, playClickSound, playChimeSound } from '../utils/soundEffects';
 
 export const PresentationMode: React.FC = () => {
@@ -555,6 +555,11 @@ export const PresentationMode: React.FC = () => {
                 <div className="lg:col-span-5 h-56 sm:h-64 rounded-2xl overflow-hidden border-2 border-emerald-600 shadow-md">
                   <img
                     src={SOLUTION_IMAGE_PATH}
+                    onError={(e) => {
+                      if (e.currentTarget.src !== SOLUTION_FALLBACK_PATH) {
+                        e.currentTarget.src = SOLUTION_FALLBACK_PATH;
+                      }
+                    }}
                     alt="Saralash qutilari amaliyoti"
                     className="w-full h-full object-cover object-center"
                   />

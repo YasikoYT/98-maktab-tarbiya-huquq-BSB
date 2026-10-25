@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tv, Award, CheckCircle2 } from 'lucide-react';
 import { useProject } from '../context/ProjectContext';
-import { HERO_IMAGE_PATH, SCHOOL_INFO } from '../data/initialData';
+import { HERO_IMAGE_PATH, HERO_FALLBACK_PATH, SCHOOL_INFO } from '../data/initialData';
 import { playChimeSound } from '../utils/soundEffects';
 
 export const HeroSection: React.FC = () => {
@@ -19,8 +19,15 @@ export const HeroSection: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={HERO_IMAGE_PATH}
+          onError={(e) => {
+            if (e.currentTarget.src !== HERO_FALLBACK_PATH) {
+              e.currentTarget.src = HERO_FALLBACK_PATH;
+            }
+          }}
           alt="98-maktab o‘quvchilari ekologik tashabbusda"
           referrerPolicy="no-referrer"
+          loading="eager"
+          decoding="async"
           className="w-full h-full object-cover object-center transform scale-100 transition-transform duration-1000 hover:scale-105"
         />
         {/* Soft, measured contrast gradient overlay that keeps the students and schoolyard vivid while ensuring high legibility */}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useProject } from '../context/ProjectContext';
-import { SOLUTION_IMAGE_PATH } from '../data/initialData';
+import { SOLUTION_IMAGE_PATH, SOLUTION_FALLBACK_PATH } from '../data/initialData';
 import { CheckCircle2, Sparkles, Star } from 'lucide-react';
 import { playClickSound } from '../utils/soundEffects';
 
@@ -92,8 +92,15 @@ export const SolutionsSection: React.FC = () => {
             <div className="lg:col-span-5 h-64 sm:h-72 rounded-2xl overflow-hidden border border-slate-200 relative group shadow-sm">
               <img
                 src={SOLUTION_IMAGE_PATH}
+                onError={(e) => {
+                  if (e.currentTarget.src !== SOLUTION_FALLBACK_PATH) {
+                    e.currentTarget.src = SOLUTION_FALLBACK_PATH;
+                  }
+                }}
                 alt="Maktabda qog‘oz va plastikni saralash amaliyoti"
                 referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-4">

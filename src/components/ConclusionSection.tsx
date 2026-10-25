@@ -1,9 +1,11 @@
 import React from 'react';
 import { SCHOOL_INFO } from '../data/initialData';
 import confetti from 'canvas-confetti';
+import { playChimeSound } from '../utils/soundEffects';
 
 export const ConclusionSection: React.FC = () => {
   const triggerConfetti = () => {
+    playChimeSound();
     try {
       confetti({
         particleCount: 120,

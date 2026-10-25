@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BarChart3, PieChart, Lightbulb, TrendingUp, Info } from 'lucide-react';
 import { useProject } from '../context/ProjectContext';
 import { SURVEY_TOTAL_RESPONDENTS } from '../data/initialData';
+import { playClickSound } from '../utils/soundEffects';
 
 export const AnalysisSection: React.FC = () => {
   const { surveyQuestions } = useProject();
@@ -115,7 +116,10 @@ export const AnalysisSection: React.FC = () => {
               {surveyQuestions.map(q => (
                 <button
                   key={q.id}
-                  onClick={() => setActiveQuestionId(q.id)}
+                  onClick={() => {
+                    playClickSound();
+                    setActiveQuestionId(q.id);
+                  }}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
                     activeQuestionId === q.id
                       ? 'bg-emerald-800 text-white shadow-md scale-105'

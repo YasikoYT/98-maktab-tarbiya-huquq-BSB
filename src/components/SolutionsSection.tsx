@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useProject } from '../context/ProjectContext';
+import { SOLUTION_IMAGE_PATH } from '../data/initialData';
+import { CheckCircle2, Sparkles, Star } from 'lucide-react';
+import { playClickSound } from '../utils/soundEffects';
 
 export const SolutionsSection: React.FC = () => {
   const { solutions } = useProject();
@@ -12,14 +15,14 @@ export const SolutionsSection: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="text-xs font-mono font-bold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full uppercase tracking-widest block w-max mx-auto mb-2">
+          <span className="text-xs font-mono font-black text-emerald-900 bg-emerald-100 px-3.5 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3 border border-emerald-200">
             Amaliy tashabbuslar
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-2">
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-3">
             3 ta Yechim va Asosiy Tanlangan Reja
           </h2>
-          <p className="text-sm text-slate-600 max-w-xl mx-auto">
-            Jamoamiz ishlab chiqqan takliflar orasidan <strong>“Chiqindini sarala”</strong> loyihasi eng yuqori samaradorlikka ega deb topildi:
+          <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto font-medium">
+            Jamoamiz ishlab chiqqan takliflar orasidan <strong>“Chiqindini sarala”</strong> loyihasi eng yuqori natijaga ega deb topildi:
           </p>
         </div>
 
@@ -31,16 +34,19 @@ export const SolutionsSection: React.FC = () => {
             return (
               <div
                 key={sol.id}
-                onClick={() => setSelectedId(sol.id)}
-                className={`p-6 rounded-3xl border-2 cursor-pointer transition-all duration-300 flex flex-col justify-between ${
+                onClick={() => {
+                  playClickSound();
+                  setSelectedId(sol.id);
+                }}
+                className={`p-6 rounded-3xl border-2 cursor-pointer transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1.5 ${
                   isSelected
-                    ? 'border-emerald-800 bg-white shadow-xl scale-[1.02] ring-2 ring-emerald-800/20'
-                    : 'border-slate-200 bg-white/70 hover:border-slate-300'
+                    ? 'border-emerald-600 bg-white shadow-xl scale-[1.02] ring-2 ring-emerald-500/20'
+                    : 'border-slate-200 bg-white hover:border-slate-300 shadow-xs'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-mono font-bold text-emerald-800">
+                    <span className="text-xs font-mono font-black text-emerald-900">
                       {isWinner ? '★ ASOSIY REJA' : 'TAKLIF'}
                     </span>
                     {isWinner && (
@@ -52,7 +58,7 @@ export const SolutionsSection: React.FC = () => {
                   <h3 className="text-lg font-black text-slate-900 mb-2 leading-snug">
                     {sol.title}
                   </h3>
-                  <p className="text-xs text-slate-600 mb-4 leading-relaxed">
+                  <p className="text-xs text-slate-600 mb-4 leading-relaxed font-medium">
                     {sol.shortDesc}
                   </p>
                 </div>
@@ -65,11 +71,11 @@ export const SolutionsSection: React.FC = () => {
           })}
         </div>
 
-        {/* Selected Solution Full Passport */}
+        {/* Selected Solution Full Passport with Real Authentic Generated Photo */}
         <div className="bg-white border-2 border-slate-200 p-6 sm:p-8 rounded-3xl mb-10 shadow-md">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200 mb-6">
             <div>
-              <span className="text-xs font-mono font-bold text-emerald-800 uppercase">
+              <span className="text-xs font-mono font-bold text-emerald-800 uppercase tracking-wider">
                 Tanlangan reja pasporti:
               </span>
               <h3 className="text-2xl font-black text-slate-900">
@@ -81,18 +87,36 @@ export const SolutionsSection: React.FC = () => {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 text-xs">
-            <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200">
-              <strong className="text-emerald-950 block mb-1 font-bold text-sm">Hal qiladigan muammo:</strong>
-              <p className="text-slate-600 leading-relaxed">{activeSol.targetProblem}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            {/* Visual Photo of Solution */}
+            <div className="lg:col-span-5 h-64 sm:h-72 rounded-2xl overflow-hidden border border-slate-200 relative group shadow-sm">
+              <img
+                src={SOLUTION_IMAGE_PATH}
+                alt="Maktabda qog‘oz va plastikni saralash amaliyoti"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-4">
+                <p className="text-xs font-bold text-white leading-tight">
+                  Ko‘k quti: Qog‘oz va daftarlar · Yashil/Sariq: Plastik idishlar
+                </p>
+              </div>
             </div>
-            <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200">
-              <strong className="text-emerald-950 block mb-1 font-bold text-sm">Kerakli resurslar:</strong>
-              <p className="text-slate-600 leading-relaxed">{activeSol.requiredResources}</p>
-            </div>
-            <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200">
-              <strong className="text-emerald-950 block mb-1 font-bold text-sm">Kutilgan natija:</strong>
-              <p className="text-slate-600 leading-relaxed">{activeSol.expectedResult}</p>
+
+            {/* Details */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                <strong className="text-emerald-950 block mb-1 font-bold text-sm">Hal qiladigan muammo:</strong>
+                <p className="text-slate-600 leading-relaxed font-medium">{activeSol.targetProblem}</p>
+              </div>
+              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                <strong className="text-emerald-950 block mb-1 font-bold text-sm">Kerakli resurslar:</strong>
+                <p className="text-slate-600 leading-relaxed font-medium">{activeSol.requiredResources}</p>
+              </div>
+              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 sm:col-span-2">
+                <strong className="text-emerald-950 block mb-1 font-bold text-sm">Kutilgan amaliy natija:</strong>
+                <p className="text-slate-600 leading-relaxed font-medium">{activeSol.expectedResult}</p>
+              </div>
             </div>
           </div>
         </div>

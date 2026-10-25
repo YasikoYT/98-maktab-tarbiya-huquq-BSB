@@ -6,7 +6,8 @@ import {
   LegalArticle,
 } from '../types';
 
-export const HERO_IMAGE_PATH = '/src/assets/images/school_eco_campus_1792854735258.jpg';
+export const HERO_IMAGE_PATH = '/src/assets/images/eco_school_initiative_1792937625075.jpg';
+export const SOLUTION_IMAGE_PATH = '/src/assets/images/eco_sorting_action_1792937624484.jpg';
 
 export const SCHOOL_INFO = {
   schoolName: '98-sonli umumiy o‘rta ta’lim maktabi',
@@ -23,9 +24,9 @@ export const INITIAL_TEAM_MEMBERS: TeamMember[] = [
     order: 1,
     name: 'Akramov Anvar',
     role: 'Taqdimotchi',
-    task: 'Loyihani himoya qiladi, asosiy natijalarni taqdim etadi va g‘oyalarni komissiyaga yetkazadi.',
+    task: 'Loyihani tanishtiradi, asosiy natijalarni tushuntiradi va jamoa bilan birgalikda himoya qiladi.',
     photoUrl: '/assets/aistudio/image_3827b844.png',
-    bio: 'Loyihaning bosh spikeri. Guruh nomidan nutq so‘zlaydi, o‘quvchilar tashabbusini hay’at a’zolariga asoslab beradi.',
+    bio: '9-“D” sinfdoshlarimiz nomidan loyihani himoya qiladi, tozalik tashabbuslarimizni ustozlarimizga tushuntirib beradi.',
     skills: ['Spiker']
   },
   {
@@ -35,7 +36,7 @@ export const INITIAL_TEAM_MEMBERS: TeamMember[] = [
     role: 'Koordinator',
     task: 'Jamoa ishlarini tashkil qiladi, vazifalarni taqsimlaydi va ish rejasini nazorat qiladi.',
     photoUrl: '/assets/aistudio/image_b9da82fe.png',
-    bio: 'Jamoa yetakchisi. 9-“D” sinfdoshlarini loyiha atrofida birlashtirib, har bir bosqichning o‘z vaqtida bajarilishini ta’minladi.',
+    bio: 'Jamoamiz ishlarini tartibga soldi, maktab ma’muriyati bilan kelishib, saralash qutilarini qayerga qo‘yishni hal qildi.',
     skills: ['Koordinator']
   },
   {
@@ -45,7 +46,7 @@ export const INITIAL_TEAM_MEMBERS: TeamMember[] = [
     role: 'Tadqiqotchi',
     task: 'Qonunlar va qoidalarni o‘rganib, to‘g‘ri ma’lumot to‘playdi.',
     photoUrl: '/assets/aistudio/image_f1163eb6.png',
-    bio: 'O‘zbekiston Respublikasi Konstitutsiyasining 49- va 62-moddalarini hamda maktab ichki tartib-qoidalarini tahlil qilgan.',
+    bio: 'Davlat va huquq asoslari darsimizdan foydalanib, Konstitutsiyamizning 49- va 62-moddalaridagi burchlarimizni topib berdi.',
     skills: ['Tadqiqotchi']
   },
   {
@@ -55,7 +56,7 @@ export const INITIAL_TEAM_MEMBERS: TeamMember[] = [
     role: 'So‘rov koordinatori',
     task: '13 ta o‘quvchi o‘rtasida anonim so‘rovnoma o‘tkazdi.',
     photoUrl: '/assets/aistudio/image_38121e8a.png',
-    bio: 'Sinfdoshlarimizning haqiqiy fikrini bilish uchun 7 ta muhim savoldan iborat anonim anketa tarqatdi va xolis yig‘di.',
+    bio: 'Sinfimizdagi 13 nafar o‘quvchiga 7 ta oddiy savol yozilgan anketalarni tarqatib, har bir fikrni xolis yig‘ib chiqdi.',
     skills: ['So‘rov koordinatori']
   },
   {
@@ -65,7 +66,7 @@ export const INITIAL_TEAM_MEMBERS: TeamMember[] = [
     role: 'Analitik',
     task: 'So‘rov natijalarini hisoblab, chiroyli diagrammalar tuzdi.',
     photoUrl: '/assets/aistudio/image_d8f2b7fc.png',
-    bio: '13 ta anketadagi har bir javobni aniq foizlarda hisoblab chiqdi va katta televizorda ko‘rsatish uchun diagrammalar tayyorladi.',
+    bio: 'Yig‘ilgan anketalardagi har bir javobni aniq foizlarda hisoblab, televizorda hammaga yaqqol ko‘rinadigan diagrammalar chizdi.',
     skills: ['Analitik']
   }
 ];
@@ -147,13 +148,13 @@ export const PRACTICAL_SOLUTIONS: PracticalSolution[] = [
   {
     id: 'toza-maktab',
     title: '“Toza maktab” tashabbusi',
-    shortDesc: 'Yo‘laklar, oshxona atrofi va sinfxonalarda kundalik ozodalik monitoringi.',
-    targetProblem: 'Tanaffus paytida va darsdan so‘ng qadoqlar yerda qolib ketishi.',
+    shortDesc: 'Yo‘laklar, oshxona atrofi va sinfxonalarda kundalik ozodalik nazorati.',
+    targetProblem: 'Katta tanaffus paytida va dars tugagach qadoqlar yerda qolib ketishi.',
     participants: '9-“D” sinf o‘quvchilari va sinfdoshlar kengashi.',
-    requiredResources: 'Chiqindi qutilari, eslatma burchagi, tozalik vositalari.',
-    necessaryPermissions: 'Sinf rahbari va xo‘jalik bo‘limi bilan kelishilgan.',
-    expectedResult: 'Yo‘laklardagi mayda chiqindilar 75% ga kamayadi.',
-    evaluationMethod: 'Har juma kunlik sinflararo tozalik reytingi.',
+    requiredResources: 'Chiqindi qutilari, eslatma burchagi, gigiyena vositalari.',
+    necessaryPermissions: 'Sinf rahbari va xo‘jalik bo‘limi bilan to‘liq kelishilgan.',
+    expectedResult: 'Yo‘laklardagi mayda chiqindilar 75% ga kamayadi, tanaffusdan so‘ng sinflar ozoda qoladi.',
+    evaluationMethod: 'Har juma kuni sinflararo ozodalik reytingi va ko‘rik.',
     legalityScore: 9.8,
     utilityScore: 9.5,
     feasibilityScore: 9.8
@@ -161,13 +162,13 @@ export const PRACTICAL_SOLUTIONS: PracticalSolution[] = [
   {
     id: 'chiqindini-sarala',
     title: '“Chiqindini sarala” (Asosiy tanlangan reja)',
-    shortDesc: 'Maktabda qog‘oz va plastikni alohida rangli qutilarga yig‘ish va qayta ishlashga topshirish tizimi.',
-    targetProblem: 'Kuniga o‘nlab plastik butilkalar va yuzlab qog‘oz varaqlarining axlatga aralashib ketishi.',
+    shortDesc: 'Maktabda qog‘oz va plastikni alohida rangli qutilarga yig‘ish hamda qayta ishlashga topshirish tizimi.',
+    targetProblem: 'Har kuni o‘nlab plastik idishlar va yuzlab qog‘oz varaqlarining umumiy axlatga aralashib ketishi.',
     participants: 'Loyiha jamoasi, barcha 9-sinflar, maktab o‘quvchilar kengashi va ma’muriyat.',
-    requiredResources: 'Ko‘k rangli quti (Qog‘oz uchun) va Sariq rangli quti (Plastik uchun), ma’lumot beruvchi yorliqlar.',
-    necessaryPermissions: 'Maktab direktori va xo‘jalik mudirining rasmiy roziligi.',
-    expectedResult: 'Oyiga 50 kg makulatura va 20 kg plastik saralanib, qayta ishlashga topshiriladi. Maktab chiqindixonasiga yuk kamayadi.',
-    evaluationMethod: 'Qayta ishlashga topshirilgan xomashyo vazni va oylik hisobot.',
+    requiredResources: 'Ko‘k rangli quti (Qog‘oz uchun) va Sariq rangli quti (Plastik uchun), ma’lumot beruvchi ko‘rgazmali yorliqlar.',
+    necessaryPermissions: 'Maktab direktori va xo‘jalik mudirining rasmiy qo‘llab-quvvatlashi.',
+    expectedResult: 'Oyiga 50 kg dan ortiq makulatura va 20 kg plastik saralanib, qayta ishlashga topshiriladi. Maktab chiqindixonasiga yuk sezilarli kamayadi.',
+    evaluationMethod: 'Qayta ishlashga topshirilgan xomashyo vazni va oylik sinf hisoboti.',
     legalityScore: 10.0,
     utilityScore: 9.9,
     feasibilityScore: 9.6
@@ -175,12 +176,12 @@ export const PRACTICAL_SOLUTIONS: PracticalSolution[] = [
   {
     id: 'yashil-maktab',
     title: '“Yashil maktab” tashabbusi',
-    shortDesc: 'Maktab hovlisidagi daraxtlarni asrash, sinfxonalarda gullarni ko‘paytirish va parvarish qilish.',
+    shortDesc: 'Maktab hovlisidagi daraxtlarni asrash, sinfxonalarda xona gullarini ko‘paytirish va parvarish qilish.',
     targetProblem: 'Sinfxonalarda kislorod yetishmasligi, hovlidagi yashil maydonlarning qarovsiz qolishi.',
     participants: 'Biologiya to‘garagi a’zolari, ota-onalar va ko‘ngillilar.',
     requiredResources: 'Gul tuvaklari, manzarali o‘simliklar, sug‘orish idishlari.',
     necessaryPermissions: 'Maktab ma’muriyati va biologiya fani o‘qituvchilari.',
-    expectedResult: 'Sinflarda toza va kislorodga boy havo, 30 ta yangi gul tuvaklari parvarishlanadi.',
+    expectedResult: 'Sinflarda toza va kislorodga boy havo ta’minlanadi, 30 dan ortiq yangi gul tuvaklari parvarishlanadi.',
     evaluationMethod: 'Ko‘kalamzorlik pasporti va oylik tekshiruv.',
     legalityScore: 9.7,
     utilityScore: 9.4,
@@ -189,12 +190,12 @@ export const PRACTICAL_SOLUTIONS: PracticalSolution[] = [
 ];
 
 export const SIX_TASKS = [
-  '1. Maktabdagi chiqindi to‘planadigan nuqtalarni aniqlash va xaritalash',
-  '2. 13 ta o‘quvchi o‘rtasida 7 savolli anonim so‘rovnoma o‘tkazish',
-  '3. Konstitutsiya va maktab nizomidagilar ekologik burchlarni o‘rganish',
+  '1. Maktabdagi chiqindi to‘planadigan nuqtalarni aniqlash va xaritaga tushirish',
+  '2. 13 nafar o‘quvchi o‘rtasida 7 savolli anonim so‘rovnoma o‘tkazish',
+  '3. Konstitutsiya va maktab nizomidagi ekologik burch va huquqlarni o‘rganish',
   '4. To‘plangan javoblar asosida aniq va ko‘rgazmali diagrammalar tuzish',
   '5. 3 ta taklifdan eng samarali “Chiqindini sarala” rejasini tanlash',
-  '6. Maktab rahbariyati bilan kelishib, saralash qutilarini o‘rnatish'
+  '6. Maktab rahbariyati bilan kelishib, saralash qutilarini amalda o‘rnatish'
 ];
 
 export const ROADMAP_STEPS: RoadmapStep[] = [
@@ -203,17 +204,17 @@ export const ROADMAP_STEPS: RoadmapStep[] = [
     title: 'Muammoni aniqlash va xaritalash',
     responsible: 'Akramov Anvar va Ergashev Feruz',
     deadline: '1-bosqich',
-    tasks: ['Maktab hovlisi, yo‘laklari va oshxona oldi kuzatildi, chiqindi to‘planadigan 3 ta asosiy nuqta xaritaga olindi.'],
-    expectedOutput: 'Muammolar xaritasi va ehtiyojlar ro‘yxati shakllantirildi.',
+    tasks: ['Maktab hovlisi, yo‘laklari va oshxona atrofi kuzatildi, chiqindi to‘planadigan 3 ta asosiy joy xaritaga olindi.'],
+    expectedOutput: 'Muammolar xaritasi va asosiy ehtiyojlar ro‘yxati to‘liq shakllantirildi.',
     status: 'Bajarildi'
   },
   {
     stepNumber: 2,
-    title: '13 ta o‘quvchi o‘rtasida so‘rovnoma',
+    title: '13 nafar o‘quvchi o‘rtasida so‘rovnoma',
     responsible: 'Abdusalomov Akbar va Yusupov Jaloliddin',
     deadline: '2-bosqich',
-    tasks: ['9-“D” sinfdagi 13 nafar o‘quvchiga 7 ta oddiy savol tarqatildi va javoblar xolis sanab chiqildi.'],
-    expectedOutput: 'Aniq faktlar va foizlarga ega hisobot tayyorlandi.',
+    tasks: ['9-“D” sinfdagi 13 nafar o‘quvchiga 7 ta oddiy savol tarqatildi va har bir javob xolis sanab chiqildi.'],
+    expectedOutput: 'Aniq dalillar va foizlarga ega bo‘lgan statistik hisobot tayyorlandi.',
     status: 'Bajarildi'
   },
   {
@@ -221,7 +222,7 @@ export const ROADMAP_STEPS: RoadmapStep[] = [
     title: 'Eng samarali yechimni tanlash',
     responsible: 'Butun jamoa (5 nafar a’zo)',
     deadline: '3-bosqich',
-    tasks: ['3 ta taklif solishtirildi va qog‘oz hamda plastikni saralash eng maqbul yechim deb tanlandi.'],
+    tasks: ['3 ta taklif chuqur tahlil qilindi va qog‘oz hamda plastikni saralash eng maqbul yechim deb tanlandi.'],
     expectedOutput: '“Chiqindini sarala” amaliy loyihasi to‘liq ishlab chiqildi.',
     status: 'Bajarildi'
   },
@@ -230,13 +231,13 @@ export const ROADMAP_STEPS: RoadmapStep[] = [
     title: 'Maktab rahbariyati bilan kelishish',
     responsible: 'Ergashev Feruz va Fayzullayev Ayubxon',
     deadline: '4-bosqich',
-    tasks: ['Maktab direktori va xo‘jalik mudiriga rasmiy taklif kiritildi, qutilar qo‘yiladigan joylar tasdiqlandi.'],
-    expectedOutput: 'Maktab ma’muriyatidan to‘liq ruxsat va ko‘mak olindi.',
+    tasks: ['Maktab direktori va xo‘jalik mudiriga rasmiy taklif kiritildi, saralash qutilari qo‘yiladigan joylar tasdiqlandi.'],
+    expectedOutput: 'Maktab ma’muriyatidan to‘liq rasmiy ruxsat va ko‘mak olindi.',
     status: 'Bajarildi'
   },
   {
     stepNumber: 5,
-    title: 'Saralash qutilarini o‘rnatish va hayotga tatbiq etish',
+    title: 'Saralash qutilarini o‘rnatish va amaliyot',
     responsible: '9-“D” sinf jamoasi va barcha ko‘ngillilar',
     deadline: '5-bosqich',
     tasks: ['Ko‘k (Qog‘oz) va Sariq (Plastik) qutilar o‘rnatildi, sinfdoshlarga saralash qoidalari tushuntirildi.'],
@@ -251,7 +252,7 @@ export const LEGAL_ARTICLES: LegalArticle[] = [
     source: 'O‘zbekiston Respublikasi Konstitutsiyasi',
     article: '49-modda',
     description: 'Har kim qulay atrof-muhitga, uning holati to‘g‘risidagi ishonchli axborotga ega bo‘lish huquqiga ega.',
-    relevanceToSchool: 'Har bir o‘quvchining toza, ozoda va sog‘lom maktab muhitida ta’lim olishga to‘liq qonuniy haqi bor.',
+    relevanceToSchool: 'Har bir o‘quvchining toza, ozoda va sog‘lom maktab muhitida sifatli ta’lim olishga to‘liq qonuniy haqi bor.',
     url: ''
   },
   {
@@ -259,14 +260,14 @@ export const LEGAL_ARTICLES: LegalArticle[] = [
     source: 'O‘zbekiston Respublikasi Konstitutsiyasi',
     article: '62-modda',
     description: 'Fuqarolar atrof tabiiy muhitga ehtiyotkorona munosabatda bo‘lishga majburdirlar.',
-    relevanceToSchool: 'Chiqindini yerga tashlamaslik va maktab hududini ozoda saqlash — shaxsiy xohish emas, balki fuqarolik burchimizdir.',
+    relevanceToSchool: 'Chiqindini yerga tashlamaslik va maktab hududini ozoda saqlash — shaxsiy xohish emas, balki har birimizning fuqarolik burchimizdir.',
     url: ''
   },
   {
-    title: 'Maktab mulkini va tartib-qoidalarni asrash',
+    title: 'Maktab mulkini va sanitariya qoidalarini asrash',
     source: '“Ta’lim to‘g‘risida”gi O‘zbekiston Respublikasi Qonuni',
     article: '48-modda',
-    description: 'Ta’lim oluvchilar ta’lim tashkilotining mol-mulkiga ehtiyotkorona munosabatda bo‘lishi, sanitariya-gigiyena qoidalariga rioya etishi shart.',
+    description: 'Ta’lim oluvchilar ta’lim tashkilotining mol-mulkiga ehtiyotkorona munosabatda bo‘lishi, sanitariya-gigiyena qoidalariga qat’iy rioya etishi shart.',
     relevanceToSchool: 'Sinfxonalarni, parta va jihozlarni, yo‘laklarni ozoda tutish har bir o‘quvchining qonuniy majburiyatidir.',
     url: ''
   }

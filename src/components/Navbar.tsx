@@ -1,12 +1,14 @@
 import React from 'react';
-import { Tv, Sparkles, School } from 'lucide-react';
+import { Tv } from 'lucide-react';
 import { useProject } from '../context/ProjectContext';
 import { SCHOOL_INFO } from '../data/initialData';
+import { playChimeSound } from '../utils/soundEffects';
 
 export const Navbar: React.FC = () => {
   const { setIsPresentationMode, setCurrentSlide } = useProject();
 
   const startPresentation = () => {
+    playChimeSound();
     setCurrentSlide(1);
     setIsPresentationMode(true);
   };
@@ -31,10 +33,10 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Center / Action: Prominent "Taqdimotni boshlash" button */}
+        {/* Right Action: Prominent "Taqdimotni boshlash (TV)" button */}
         <button
           onClick={startPresentation}
-          className="group relative flex items-center gap-2.5 px-6 py-2.5 text-xs sm:text-sm font-extrabold text-white bg-emerald-800 hover:bg-emerald-700 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+          className="group relative flex items-center gap-2.5 px-6 py-2.5 text-xs sm:text-sm font-extrabold text-white bg-emerald-800 hover:bg-emerald-700 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:scale-105 active:scale-95 cursor-pointer shimmer-effect"
         >
           <Tv className="w-4 h-4 text-amber-300" />
           <span className="tracking-tight">Taqdimotni boshlash (TV)</span>

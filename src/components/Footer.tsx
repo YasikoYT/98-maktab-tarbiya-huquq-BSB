@@ -2,15 +2,18 @@ import React from 'react';
 import { Tv, ArrowUp, School } from 'lucide-react';
 import { useProject } from '../context/ProjectContext';
 import { SCHOOL_INFO } from '../data/initialData';
+import { playChimeSound, playClickSound } from '../utils/soundEffects';
 
 export const Footer: React.FC = () => {
   const { setIsPresentationMode, setCurrentSlide } = useProject();
 
   const scrollToTop = () => {
+    playClickSound();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const startPresentation = () => {
+    playChimeSound();
     setCurrentSlide(1);
     setIsPresentationMode(true);
   };
@@ -31,10 +34,10 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={startPresentation}
-              className="flex items-center gap-2 px-5 py-2.5 text-xs font-black text-white bg-emerald-800 hover:bg-emerald-700 rounded-xl transition-colors cursor-pointer shadow-sm"
+              className="flex items-center gap-2 px-5 py-2.5 text-xs font-black text-white bg-emerald-800 hover:bg-emerald-700 rounded-xl transition-colors cursor-pointer shadow-sm shimmer-effect"
             >
               <Tv className="w-4 h-4 text-amber-300" />
-              <span>Smart TV Taqdimot</span>
+              <span>Taqdimotni boshlash (TV)</span>
             </button>
             <button
               onClick={scrollToTop}

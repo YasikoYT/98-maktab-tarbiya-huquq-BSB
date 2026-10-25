@@ -39,15 +39,11 @@
   background: #94a3b8;
 }
 
-/* Smart TV Presentation animations */
-.presentation-slide-enter {
-  animation: slideFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
+/* Keyframes & Animations */
 @keyframes slideFadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px) scale(0.99);
+    transform: translateY(12px) scale(0.985);
   }
   to {
     opacity: 1;
@@ -55,28 +51,165 @@
   }
 }
 
-@keyframes floatGentle {
+/* High-fidelity Team Portrait Up-and-Down Floating Animations (Staggered Wave) */
+@keyframes teamFloat1 {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-16px) rotate(0.4deg);
   }
 }
 
-@keyframes pulseGlow {
+@keyframes teamFloat2 {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+    transform: translateY(-14px) rotate(-0.3deg);
   }
   50% {
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.35);
+    transform: translateY(8px) rotate(0.3deg);
   }
 }
 
-.animate-float-gentle {
-  animation: floatGentle 4s ease-in-out infinite;
+@keyframes teamFloat3 {
+  0%, 100% {
+    transform: translateY(6px) rotate(0.4deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(-0.4deg);
+  }
 }
 
-.animate-pulse-glow {
-  animation: pulseGlow 3s ease-in-out infinite;
+@keyframes teamFloat4 {
+  0%, 100% {
+    transform: translateY(-10px) rotate(-0.3deg);
+  }
+  50% {
+    transform: translateY(12px) rotate(0.3deg);
+  }
 }
+
+@keyframes teamFloat5 {
+  0%, 100% {
+    transform: translateY(2px) rotate(0.3deg);
+  }
+  50% {
+    transform: translateY(-17px) rotate(-0.3deg);
+  }
+}
+
+/* Realistic Ground Shadow Pulsing synced with vertical levitation */
+@keyframes teamShadowWave1 {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+    filter: blur(6px);
+  }
+  50% {
+    transform: scale(0.75);
+    opacity: 0.15;
+    filter: blur(10px);
+  }
+}
+
+@keyframes teamShadowWave2 {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.2;
+    filter: blur(9px);
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.45;
+    filter: blur(5px);
+  }
+}
+
+/* Portrait Glowing Border & Aura */
+@keyframes portraitGlow {
+  0%, 100% {
+    box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.2), 0 0 0 1px rgba(16, 185, 129, 0.25);
+  }
+  50% {
+    box-shadow: 0 25px 40px -8px rgba(5, 150, 105, 0.45), 0 0 0 3px rgba(16, 185, 129, 0.5);
+  }
+}
+
+@keyframes auroraRotate {
+  0% {
+    transform: rotate(0deg) scale(0.95);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(0.95);
+  }
+}
+
+.presentation-slide-enter {
+  animation: slideFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-team-float-1 {
+  animation: teamFloat1 4.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-team-float-2 {
+  animation: teamFloat2 4.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-team-float-3 {
+  animation: teamFloat3 4.4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-team-float-4 {
+  animation: teamFloat4 5.0s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-team-float-5 {
+  animation: teamFloat5 4.6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-shadow-wave-1 {
+  animation: teamShadowWave1 4.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-shadow-wave-2 {
+  animation: teamShadowWave2 4.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-portrait-glow {
+  animation: portraitGlow 3.6s ease-in-out infinite;
+}
+
+.animate-aurora {
+  animation: auroraRotate 14s linear infinite;
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg) translateX(-150%);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+
+.shimmer-effect:hover::after {
+  animation: shimmerSweep 1.2s ease-in-out;
+}
+

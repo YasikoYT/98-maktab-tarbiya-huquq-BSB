@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   ChevronLeft,
   ChevronRight,
@@ -139,7 +140,15 @@ export const PresentationMode: React.FC = () => {
 
       {/* Slide Canvas - Optimized for Big TV Screen with White Backdrop */}
       <div className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 flex items-center justify-center bg-slate-100">
-        <div className="w-full max-w-6xl mx-auto h-full flex flex-col justify-center presentation-slide-enter">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, y: 16, scale: 0.99 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -16, scale: 0.99 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full max-w-6xl mx-auto h-full flex flex-col justify-center"
+          >
 
           {/* SLIDE 1: Intro Title (Without Creator - Creator is only at the end!) */}
           {currentSlide === 1 && (
@@ -627,8 +636,9 @@ export const PresentationMode: React.FC = () => {
               </div>
             </div>
           )}
-        </div>
-      </div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
 
       {/* Bottom Bar - TV Controls: Previous & Next with Giant Buttons */}
       <div className="h-20 px-6 sm:px-12 bg-white border-t border-slate-200 flex items-center justify-between shrink-0 shadow-md">

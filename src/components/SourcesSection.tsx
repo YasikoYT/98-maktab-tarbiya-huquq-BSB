@@ -1,5 +1,6 @@
 import React from 'react';
 import { OFFICIAL_SOURCES } from '../data/initialData';
+import { ScrollStagger, ScrollItem } from './ScrollReveal';
 
 export const SourcesSection: React.FC = () => {
   return (
@@ -14,26 +15,27 @@ export const SourcesSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <ScrollStagger className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {OFFICIAL_SOURCES.map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-white border-2 border-slate-200 p-5 rounded-2xl shadow-xs flex items-start gap-3.5 hover:border-emerald-600 transition-colors"
-            >
-              <div className="w-8 h-8 rounded-xl bg-emerald-800 text-white flex items-center justify-center font-black text-xs shrink-0">
-                0{idx + 1}
+            <ScrollItem key={idx} className="h-full">
+              <div
+                className="h-full bg-white border-2 border-slate-200 p-5 rounded-2xl shadow-xs flex items-start gap-3.5 hover:border-emerald-600 transition-colors"
+              >
+                <div className="w-8 h-8 rounded-xl bg-emerald-800 text-white flex items-center justify-center font-black text-xs shrink-0">
+                  0{idx + 1}
+                </div>
+                <div>
+                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                    {item.title}
+                  </h3>
+                  <span className="text-[11px] font-semibold text-slate-500 mt-1 block">
+                    {item.org}
+                  </span>
+                </div>
               </div>
-              <div>
-                <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                  {item.title}
-                </h3>
-                <span className="text-[11px] font-semibold text-slate-500 mt-1 block">
-                  {item.org}
-                </span>
-              </div>
-            </div>
+            </ScrollItem>
           ))}
-        </div>
+        </ScrollStagger>
       </div>
     </section>
   );

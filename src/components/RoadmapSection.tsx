@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckCircle2, User } from 'lucide-react';
 import { useProject } from '../context/ProjectContext';
+import { ScrollStagger, ScrollItem } from './ScrollReveal';
 
 export const RoadmapSection: React.FC = () => {
   const { roadmap } = useProject();
@@ -22,43 +23,44 @@ export const RoadmapSection: React.FC = () => {
         </div>
 
         {/* 5 Rich Filled Steps */}
-        <div className="space-y-4">
+        <ScrollStagger className="space-y-4">
           {roadmap.map((step) => (
-            <div
-              key={step.stepNumber}
-              className="bg-slate-50 border-2 border-slate-200 p-6 rounded-3xl flex flex-col sm:flex-row sm:items-center justify-between gap-5 hover:border-emerald-600 hover:shadow-lg transition-all"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-800 text-white font-black text-base flex items-center justify-center shrink-0 shadow-sm">
-                  0{step.stepNumber}
-                </div>
-                <div>
-                  <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                    <h3 className="text-base sm:text-lg font-black text-slate-900">
-                      {step.title}
-                    </h3>
-                    <span className="text-xs font-bold text-emerald-800 bg-emerald-100/70 px-2.5 py-0.5 rounded-md">
-                      Mas’ul: {step.responsible}
+            <ScrollItem key={step.stepNumber}>
+              <div
+                className="bg-slate-50 border-2 border-slate-200 p-6 rounded-3xl flex flex-col sm:flex-row sm:items-center justify-between gap-5 hover:border-emerald-600 hover:shadow-lg transition-all"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-800 text-white font-black text-base flex items-center justify-center shrink-0 shadow-sm">
+                    0{step.stepNumber}
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                      <h3 className="text-base sm:text-lg font-black text-slate-900">
+                        {step.title}
+                      </h3>
+                      <span className="text-xs font-bold text-emerald-800 bg-emerald-100/70 px-2.5 py-0.5 rounded-md">
+                        Mas’ul: {step.responsible}
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed mb-1.5">
+                      {step.tasks[0]}
+                    </p>
+                    <span className="text-[11px] font-semibold text-slate-700 block">
+                      Kutilgan natija: {step.expectedOutput}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-1.5">
-                    {step.tasks[0]}
-                  </p>
-                  <span className="text-[11px] font-semibold text-slate-700 block">
-                    Kutilgan natija: {step.expectedOutput}
+                </div>
+
+                <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-black bg-emerald-100 text-emerald-900 border border-emerald-300">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-700" />
+                    <span>Bajarildi</span>
                   </span>
                 </div>
               </div>
-
-              <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
-                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-black bg-emerald-100 text-emerald-900 border border-emerald-300">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-700" />
-                  <span>Bajarildi</span>
-                </span>
-              </div>
-            </div>
+            </ScrollItem>
           ))}
-        </div>
+        </ScrollStagger>
       </div>
     </section>
   );

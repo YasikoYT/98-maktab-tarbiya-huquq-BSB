@@ -3,6 +3,7 @@ import { BarChart3, PieChart, Lightbulb, TrendingUp, Info } from 'lucide-react';
 import { useProject } from '../context/ProjectContext';
 import { SURVEY_TOTAL_RESPONDENTS } from '../data/initialData';
 import { playClickSound } from '../utils/soundEffects';
+import { ScrollStagger, ScrollItem } from './ScrollReveal';
 
 export const AnalysisSection: React.FC = () => {
   const { surveyQuestions } = useProject();
@@ -81,29 +82,30 @@ export const AnalysisSection: React.FC = () => {
         </div>
 
         {/* 3 Rich Highlight Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <ScrollStagger className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {keyFacts.map((fact, idx) => (
-            <div
-              key={idx}
-              className="bg-white border-2 border-slate-200 p-6 rounded-3xl text-left hover:border-emerald-600 hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-sm flex flex-col justify-between"
-            >
-              <div>
-                <span className="text-4xl sm:text-5xl font-black text-emerald-800 font-mono block mb-2">
-                  {fact.pct}
-                </span>
-                <h3 className="text-base font-black text-slate-900 mb-2 leading-snug">
-                  {fact.title}
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  {fact.desc}
-                </p>
+            <ScrollItem key={idx} className="h-full">
+              <div
+                className="h-full bg-white border-2 border-slate-200 p-6 rounded-3xl text-left hover:border-emerald-600 hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-sm flex flex-col justify-between"
+              >
+                <div>
+                  <span className="text-4xl sm:text-5xl font-black text-emerald-800 font-mono block mb-2">
+                    {fact.pct}
+                  </span>
+                  <h3 className="text-base font-black text-slate-900 mb-2 leading-snug">
+                    {fact.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                    {fact.desc}
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-slate-100 text-[11px] font-semibold text-emerald-900 bg-emerald-50 p-2.5 rounded-xl">
+                  {fact.insight}
+                </div>
               </div>
-              <div className="pt-3 border-t border-slate-100 text-[11px] font-semibold text-emerald-900 bg-emerald-50 p-2.5 rounded-xl">
-                {fact.insight}
-              </div>
-            </div>
+            </ScrollItem>
           ))}
-        </div>
+        </ScrollStagger>
 
         {/* Custom Animated Interactive Donut and Bars Canvas */}
         <div className="bg-white border-2 border-slate-200 p-6 sm:p-10 rounded-3xl mb-12 shadow-md">

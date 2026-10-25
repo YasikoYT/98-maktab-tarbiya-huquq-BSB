@@ -1,5 +1,6 @@
 import React from 'react';
 import { AlertCircle, HelpCircle, CheckCircle2, Trash2, Recycle, Users } from 'lucide-react';
+import { ScrollStagger, ScrollItem } from './ScrollReveal';
 
 export const ProblemSection: React.FC = () => {
   const problems = [
@@ -59,46 +60,47 @@ export const ProblemSection: React.FC = () => {
         </div>
 
         {/* 3 Rich Problem Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <ScrollStagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {problems.map((item) => {
             const Icon = item.icon;
             return (
-              <div
-                key={item.num}
-                className="bg-white border-2 border-slate-200 p-6 rounded-3xl flex flex-col justify-between hover:border-emerald-600 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className={`w-10 h-10 rounded-xl border flex items-center justify-center ${item.iconBg}`}>
-                      <Icon className={`w-5 h-5 ${item.iconColor}`} />
+              <ScrollItem key={item.num} className="h-full">
+                <div
+                  className="h-full bg-white border-2 border-slate-200 p-6 rounded-3xl flex flex-col justify-between hover:border-emerald-600 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className={`w-10 h-10 rounded-xl border flex items-center justify-center ${item.iconBg}`}>
+                        <Icon className={`w-5 h-5 ${item.iconColor}`} />
+                      </div>
+                      <span className="text-xs font-mono font-black text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200">
+                        MASALA {item.num}
+                      </span>
                     </div>
-                    <span className="text-xs font-mono font-black text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200">
-                      MASALA {item.num}
-                    </span>
+                    <h3 className="text-lg font-black text-slate-900 mb-3 leading-snug group-hover:text-emerald-800 transition-colors">
+                      {item.title}
+                    </h3>
+                    <div className="space-y-3 text-xs sm:text-sm text-slate-600">
+                      <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-100">
+                        <span className="font-bold text-slate-900 block mb-1">Keltirib chiqaruvchi sabab:</span>
+                        <p className="leading-relaxed text-slate-700">{item.cause}</p>
+                      </div>
+                      <div className="p-3.5 bg-rose-50/60 rounded-2xl border border-rose-100">
+                        <span className="font-bold text-rose-800 block mb-1">Oqibati va zarari:</span>
+                        <p className="leading-relaxed text-slate-700">{item.consequence}</p>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-black text-slate-900 mb-3 leading-snug group-hover:text-emerald-800 transition-colors">
-                    {item.title}
-                  </h3>
-                  <div className="space-y-3 text-xs sm:text-sm text-slate-600">
-                    <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-100">
-                      <span className="font-bold text-slate-900 block mb-1">Keltirib chiqaruvchi sabab:</span>
-                      <p className="leading-relaxed text-slate-700">{item.cause}</p>
-                    </div>
-                    <div className="p-3.5 bg-rose-50/60 rounded-2xl border border-rose-100">
-                      <span className="font-bold text-rose-800 block mb-1">Oqibati va zarari:</span>
-                      <p className="leading-relaxed text-slate-700">{item.consequence}</p>
-                    </div>
-                  </div>
-                </div>
 
-                <div className="mt-5 pt-4 border-t border-slate-100 text-xs sm:text-sm">
-                  <span className="text-emerald-800 font-black block mb-1">Amaliy yechim taklifi:</span>
-                  <p className="text-slate-800 font-medium leading-relaxed">{item.solution}</p>
+                  <div className="mt-5 pt-4 border-t border-slate-100 text-xs sm:text-sm">
+                    <span className="text-emerald-800 font-black block mb-1">Amaliy yechim taklifi:</span>
+                    <p className="text-slate-800 font-medium leading-relaxed">{item.solution}</p>
+                  </div>
                 </div>
-              </div>
+              </ScrollItem>
             );
           })}
-        </div>
+        </ScrollStagger>
       </div>
     </section>
   );

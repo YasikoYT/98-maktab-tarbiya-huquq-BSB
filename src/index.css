@@ -213,3 +213,126 @@
   animation: shimmerSweep 1.2s ease-in-out;
 }
 
+/* ==========================================================================
+   HIGH-CONTRAST SMART TV MODE
+   Optimized for large screens (55"-85"+ Smart TVs, classroom projectors):
+   - 118% font size scaling
+   - Deep jet-black typography (#000000) for WCAG AAA contrast ratio (> 14:1)
+   - Expanded grid gaps and generous card padding
+   - Bold 2.5px-3px borders for crisp structural definition across the room
+   ========================================================================== */
+.tv-mode {
+  font-size: 118%;
+  color: #000000 !important;
+}
+
+.tv-mode p,
+.tv-mode span,
+.tv-mode li,
+.tv-mode td,
+.tv-mode th,
+.tv-mode div {
+  text-rendering: optimizeLegibility;
+}
+
+/* Contrast boost for standard text */
+.tv-mode .text-slate-600,
+.tv-mode .text-slate-500,
+.tv-mode .text-slate-700 {
+  color: #090e17 !important;
+  font-weight: 600 !important;
+}
+
+.tv-mode .text-slate-900,
+.tv-mode .text-slate-800 {
+  color: #000000 !important;
+  font-weight: 800 !important;
+}
+
+/* Heading expansions */
+.tv-mode h1 {
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.15 !important;
+  color: #ffffff !important;
+}
+
+.tv-mode h2 {
+  font-size: clamp(2rem, 3.8vw, 3.4rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.025em !important;
+  color: #000000 !important;
+}
+
+.tv-mode h3 {
+  font-size: clamp(1.3rem, 2.4vw, 2.1rem) !important;
+  font-weight: 900 !important;
+  color: #000000 !important;
+}
+
+/* Thicker borders for far-distance visibility */
+.tv-mode .border,
+.tv-mode .border-slate-200,
+.tv-mode .border-slate-100 {
+  border-width: 2.5px !important;
+  border-color: #0f172a !important;
+}
+
+.tv-mode .border-2 {
+  border-width: 3.5px !important;
+}
+
+.tv-mode .border-emerald-200,
+.tv-mode .border-emerald-300 {
+  border-color: #047857 !important;
+  border-width: 2.5px !important;
+}
+
+/* High-contrast cards with pronounced elevation */
+.tv-mode .bg-white {
+  background-color: #ffffff !important;
+  box-shadow: 0 14px 34px -5px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(15, 23, 42, 0.12) !important;
+}
+
+.tv-mode .bg-slate-50 {
+  background-color: #f1f5f9 !important;
+}
+
+/* High-contrast badge tags */
+.tv-mode .bg-emerald-100 {
+  background-color: #064e3b !important;
+  color: #ffffff !important;
+  border: 1.5px solid #10b981 !important;
+  font-weight: 800 !important;
+}
+
+.tv-mode .bg-emerald-50 {
+  background-color: #ecfdf5 !important;
+  border: 2px solid #059669 !important;
+}
+
+/* Wider canvas for 4K / 1080p Smart TV displays */
+.tv-mode .max-w-6xl {
+  max-width: 86rem !important;
+}
+
+.tv-mode .max-w-7xl {
+  max-width: 92rem !important;
+}
+
+/* Expanded section spacing */
+.tv-mode section {
+  padding-top: 5.5rem !important;
+  padding-bottom: 5.5rem !important;
+}
+
+/* Team portrait floating animation with wider presence in TV mode */
+.tv-mode .animate-team-float-1,
+.tv-mode .animate-team-float-2,
+.tv-mode .animate-team-float-3,
+.tv-mode .animate-team-float-4,
+.tv-mode .animate-team-float-5 {
+  transform-origin: center bottom;
+}
+

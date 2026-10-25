@@ -3,6 +3,7 @@ import { useProject } from '../context/ProjectContext';
 import { SOLUTION_IMAGE_PATH, SOLUTION_FALLBACK_PATH } from '../data/initialData';
 import { CheckCircle2, Sparkles, Star } from 'lucide-react';
 import { playClickSound } from '../utils/soundEffects';
+import { ScrollStagger, ScrollItem } from './ScrollReveal';
 
 export const SolutionsSection: React.FC = () => {
   const { solutions } = useProject();
@@ -27,49 +28,50 @@ export const SolutionsSection: React.FC = () => {
         </div>
 
         {/* 3 Proposal Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <ScrollStagger className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {solutions.map((sol) => {
             const isSelected = sol.id === selectedId;
             const isWinner = sol.id === 'chiqindini-sarala';
             return (
-              <div
-                key={sol.id}
-                onClick={() => {
-                  playClickSound();
-                  setSelectedId(sol.id);
-                }}
-                className={`p-6 rounded-3xl border-2 cursor-pointer transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1.5 ${
-                  isSelected
-                    ? 'border-emerald-600 bg-white shadow-xl scale-[1.02] ring-2 ring-emerald-500/20'
-                    : 'border-slate-200 bg-white hover:border-slate-300 shadow-xs'
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-mono font-black text-emerald-900">
-                      {isWinner ? '★ ASOSIY REJA' : 'TAKLIF'}
-                    </span>
-                    {isWinner && (
-                      <span className="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[11px] font-black">
-                        TANLANGAN
+              <ScrollItem key={sol.id} className="h-full">
+                <div
+                  onClick={() => {
+                    playClickSound();
+                    setSelectedId(sol.id);
+                  }}
+                  className={`h-full p-6 rounded-3xl border-2 cursor-pointer transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1.5 ${
+                    isSelected
+                      ? 'border-emerald-600 bg-white shadow-xl scale-[1.02] ring-2 ring-emerald-500/20'
+                      : 'border-slate-200 bg-white hover:border-slate-300 shadow-xs'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs font-mono font-black text-emerald-900">
+                        {isWinner ? '★ ASOSIY REJA' : 'TAKLIF'}
                       </span>
-                    )}
+                      {isWinner && (
+                        <span className="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[11px] font-black">
+                          TANLANGAN
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="text-lg font-black text-slate-900 mb-2 leading-snug">
+                      {sol.title}
+                    </h3>
+                    <p className="text-xs text-slate-600 mb-4 leading-relaxed font-medium">
+                      {sol.shortDesc}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-black text-slate-900 mb-2 leading-snug">
-                    {sol.title}
-                  </h3>
-                  <p className="text-xs text-slate-600 mb-4 leading-relaxed font-medium">
-                    {sol.shortDesc}
-                  </p>
+                  <div className="pt-3 border-t border-slate-100 text-xs font-mono text-slate-700 font-bold flex justify-between">
+                    <span>Umumiy baho:</span>
+                    <span className="text-emerald-800">{((sol.legalityScore + sol.utilityScore + sol.feasibilityScore) / 3).toFixed(1)} / 10</span>
+                  </div>
                 </div>
-                <div className="pt-3 border-t border-slate-100 text-xs font-mono text-slate-700 font-bold flex justify-between">
-                  <span>Umumiy baho:</span>
-                  <span className="text-emerald-800">{((sol.legalityScore + sol.utilityScore + sol.feasibilityScore) / 3).toFixed(1)} / 10</span>
-                </div>
-              </div>
+              </ScrollItem>
             );
           })}
-        </div>
+        </ScrollStagger>
 
         {/* Selected Solution Full Passport with Real Authentic Generated Photo */}
         <div className="bg-white border-2 border-slate-200 p-6 sm:p-8 rounded-3xl mb-10 shadow-md">

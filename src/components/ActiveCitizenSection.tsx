@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShieldCheck, Zap, HeartHandshake, Scale, Eye, BookOpen } from 'lucide-react';
+import { ScrollStagger, ScrollItem } from './ScrollReveal';
 
 export const ActiveCitizenSection: React.FC = () => {
   const qualities = [
@@ -16,7 +17,7 @@ export const ActiveCitizenSection: React.FC = () => {
     {
       icon: HeartHandshake,
       title: 'Hamkorlik',
-      desc: 'Tengdoshlar, o‘qituvchilar va maktab rahbariyati bilan birgalikda jamoaviy va samimiy harakat qilish.'
+      desc: 'Tengdoshlar va o‘quvchilar jamoasi bilan birgalikda birdamlikda va faol harakat qilish.'
     },
     {
       icon: Scale,
@@ -48,28 +49,29 @@ export const ActiveCitizenSection: React.FC = () => {
         </div>
 
         {/* 5 Virtues Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
+        <ScrollStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
           {qualities.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div
-                key={idx}
-                className="bg-white border border-slate-200 p-5 rounded-2xl text-center hover:border-emerald-500 hover:shadow-md transition-all shadow-xs flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto mb-3">
-                    <Icon className="w-6 h-6" />
+              <ScrollItem key={idx} className="h-full">
+                <div
+                  className="h-full bg-white border border-slate-200 p-5 rounded-2xl text-center hover:border-emerald-500 hover:shadow-md transition-all shadow-xs flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto mb-3">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-base font-bold text-slate-900 mb-1.5">{item.title}</h3>
+                    <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
                   </div>
-                  <h3 className="text-base font-bold text-slate-900 mb-1.5">{item.title}</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
+                  <div className="mt-3 pt-2 border-t border-slate-100 text-[10px] font-mono text-slate-400">
+                    Fazilat 0{idx + 1}
+                  </div>
                 </div>
-                <div className="mt-3 pt-2 border-t border-slate-100 text-[10px] font-mono text-slate-400">
-                  Fazilat 0{idx + 1}
-                </div>
-              </div>
+              </ScrollItem>
             );
           })}
-        </div>
+        </ScrollStagger>
       </div>
     </section>
   );

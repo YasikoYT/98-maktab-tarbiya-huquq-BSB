@@ -23,6 +23,8 @@ interface ProjectContextType {
   setCurrentSlide: (slide: number) => void;
   userStance: 'yes' | 'no' | 'neutral' | null;
   setUserStance: (stance: 'yes' | 'no' | 'neutral' | null) => void;
+  isTvMode: boolean;
+  toggleTvMode: () => void;
 }
 
 const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
@@ -35,6 +37,25 @@ export const ProjectProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [isPresentationMode, setIsPresentationMode] = useState<boolean>(false);
   const [currentSlide, setCurrentSlide] = useState<number>(1);
   const [userStance, setUserStance] = useState<'yes' | 'no' | 'neutral' | null>('yes');
+  const [isTvMode, setIsTvMode] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('tv_mode_active') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  const toggleTvMode = () => {
+    setIsTvMode((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem('tv_mode_active', String(next));
+      } catch {
+        // ignore
+      }
+      return next;
+    });
+  };
 
   return (
     <ProjectContext.Provider
@@ -49,6 +70,8 @@ export const ProjectProvider: React.FC<{ children: React.ReactNode }> = ({ child
         setCurrentSlide,
         userStance,
         setUserStance,
+        isTvMode,
+        toggleTvMode,
       }}
     >
       {children}

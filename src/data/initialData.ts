@@ -41,7 +41,7 @@ export const INITIAL_TEAM_MEMBERS: TeamMember[] = [
     role: 'Koordinator',
     task: 'Jamoa ishlarini tashkil qiladi, vazifalarni taqsimlaydi va ish rejasini nazorat qiladi.',
     photoUrl: '/assets/aistudio/image_b9da82fe.png',
-    bio: 'Jamoamiz ishlarini tartibga soldi, maktab ma’muriyati bilan kelishib, saralash qutilarini qayerga qo‘yishni hal qildi.',
+    bio: 'Jamoamiz ishlarini tartibga soldi, sinfdoshlarimiz bilan birgalikda saralash qutilarini qayerga qo‘yishni rejalashtirdi.',
     skills: ['Koordinator']
   },
   {
@@ -169,9 +169,9 @@ export const PRACTICAL_SOLUTIONS: PracticalSolution[] = [
     title: '“Chiqindini sarala” (Asosiy tanlangan reja)',
     shortDesc: 'Maktabda qog‘oz va plastikni alohida rangli qutilarga yig‘ish hamda qayta ishlashga topshirish tizimi.',
     targetProblem: 'Har kuni o‘nlab plastik idishlar va yuzlab qog‘oz varaqlarining umumiy axlatga aralashib ketishi.',
-    participants: 'Loyiha jamoasi, barcha 9-sinflar, maktab o‘quvchilar kengashi va ma’muriyat.',
+    participants: 'Loyiha jamoasi, barcha 9-sinflar va maktab o‘quvchilar kengashi.',
     requiredResources: 'Ko‘k rangli quti (Qog‘oz uchun) va Sariq rangli quti (Plastik uchun), ma’lumot beruvchi ko‘rgazmali yorliqlar.',
-    necessaryPermissions: 'Maktab direktori va xo‘jalik mudirining rasmiy qo‘llab-quvvatlashi.',
+    necessaryPermissions: 'Sinfdoshlar va o‘quvchilar kengashining to‘liq qo‘llab-quvvatlashi.',
     expectedResult: 'Oyiga 50 kg dan ortiq makulatura va 20 kg plastik saralanib, qayta ishlashga topshiriladi. Maktab chiqindixonasiga yuk sezilarli kamayadi.',
     evaluationMethod: 'Qayta ishlashga topshirilgan xomashyo vazni va oylik sinf hisoboti.',
     legalityScore: 10.0,
@@ -185,7 +185,7 @@ export const PRACTICAL_SOLUTIONS: PracticalSolution[] = [
     targetProblem: 'Sinfxonalarda kislorod yetishmasligi, hovlidagi yashil maydonlarning qarovsiz qolishi.',
     participants: 'Biologiya to‘garagi a’zolari, ota-onalar va ko‘ngillilar.',
     requiredResources: 'Gul tuvaklari, manzarali o‘simliklar, sug‘orish idishlari.',
-    necessaryPermissions: 'Maktab ma’muriyati va biologiya fani o‘qituvchilari.',
+    necessaryPermissions: 'O‘quvchilar ekologik to‘garagi va biologiya fani o‘qituvchilari.',
     expectedResult: 'Sinflarda toza va kislorodga boy havo ta’minlanadi, 30 dan ortiq yangi gul tuvaklari parvarishlanadi.',
     evaluationMethod: 'Ko‘kalamzorlik pasporti va oylik tekshiruv.',
     legalityScore: 9.7,
@@ -200,7 +200,7 @@ export const SIX_TASKS = [
   '3. Konstitutsiya va maktab nizomidagi ekologik burch va huquqlarni o‘rganish',
   '4. To‘plangan javoblar asosida aniq va ko‘rgazmali diagrammalar tuzish',
   '5. 3 ta taklifdan eng samarali “Chiqindini sarala” rejasini tanlash',
-  '6. Maktab rahbariyati bilan kelishib, saralash qutilarini amalda o‘rnatish'
+  '6. Saralash qutilarini belgilangan qulay nuqtalarga amalda o‘rnatish'
 ];
 
 export const ROADMAP_STEPS: RoadmapStep[] = [
@@ -233,11 +233,11 @@ export const ROADMAP_STEPS: RoadmapStep[] = [
   },
   {
     stepNumber: 4,
-    title: 'Maktab rahbariyati bilan kelishish',
+    title: 'Qutilar joylashuvini tasdiqlash',
     responsible: 'Ergashev Feruz va Fayzullayev Ayubxon',
     deadline: '4-bosqich',
-    tasks: ['Maktab direktori va xo‘jalik mudiriga rasmiy taklif kiritildi, saralash qutilari qo‘yiladigan joylar tasdiqlandi.'],
-    expectedOutput: 'Maktab ma’muriyatidan to‘liq rasmiy ruxsat va ko‘mak olindi.',
+    tasks: ['Sinfxonalar va yo‘laklardagi ehtiyoj o‘rganilib, saralash qutilari qo‘yiladigan qulay joylar tasdiqlandi.'],
+    expectedOutput: 'Qutilar qo‘yiladigan eng qulay va toza nuqtalar aniq belgilab olindi.',
     status: 'Bajarildi'
   },
   {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Target, CheckCircle2 } from 'lucide-react';
 import { SIX_TASKS } from '../data/initialData';
+import { ScrollStagger, ScrollItem } from './ScrollReveal';
 
 export const GoalsSection: React.FC = () => {
   const detailedTasks = [
@@ -31,8 +32,8 @@ export const GoalsSection: React.FC = () => {
     },
     {
       num: '06',
-      title: 'Qutilarni o‘rnatish va hayotga tatbiq etish',
-      desc: 'Maktab direktori va xo‘jalik mudiri bilan kelishilgan holda rangli saralash qutilari o‘rnatildi va o‘quvchilarga tushuntirildi.'
+      title: 'Qutilarni o‘rnatish va amalda qo‘llash',
+      desc: 'Belgilangan qulay nuqtalarda rangli saralash qutilari o‘rnatildi va barcha o‘quvchilarga qoidalar tushuntirildi.'
     }
   ];
 
@@ -57,30 +58,31 @@ export const GoalsSection: React.FC = () => {
           <h3 className="text-center text-2xl font-black text-slate-900 mb-8">
             Bajarilgan 6 ta aniq vazifa
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <ScrollStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {detailedTasks.map((task) => (
-              <div
-                key={task.num}
-                className="bg-slate-50 border border-slate-200 p-5 rounded-2xl shadow-xs hover:border-emerald-600 hover:shadow-md transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-8 h-8 rounded-xl bg-emerald-800 text-white flex items-center justify-center font-black text-xs mb-3">
-                    {task.num}
+              <ScrollItem key={task.num} className="h-full">
+                <div
+                  className="h-full bg-slate-50 border border-slate-200 p-5 rounded-2xl shadow-xs hover:border-emerald-600 hover:shadow-md transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="w-8 h-8 rounded-xl bg-emerald-800 text-white flex items-center justify-center font-black text-xs mb-3">
+                      {task.num}
+                    </div>
+                    <h4 className="text-base font-bold text-slate-900 mb-2 leading-snug">
+                      {task.title}
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      {task.desc}
+                    </p>
                   </div>
-                  <h4 className="text-base font-bold text-slate-900 mb-2 leading-snug">
-                    {task.title}
-                  </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {task.desc}
-                  </p>
+                  <div className="mt-4 pt-2.5 border-t border-slate-200/80 flex items-center gap-1.5 text-[11px] font-bold text-emerald-800">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>Muvaffaqiyatli bajarildi</span>
+                  </div>
                 </div>
-                <div className="mt-4 pt-2.5 border-t border-slate-200/80 flex items-center gap-1.5 text-[11px] font-bold text-emerald-800">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Muvaffaqiyatli bajarildi</span>
-                </div>
-              </div>
+              </ScrollItem>
             ))}
-          </div>
+          </ScrollStagger>
         </div>
       </div>
     </section>
